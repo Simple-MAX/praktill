@@ -1,4 +1,7 @@
 class Post < ApplicationRecord
+  belongs_to :user
+
+  validates :user_id, presence: true
   validates :image, presence: true
 
   has_attached_file :image, styles: { large: '640px', medium: '300x', thumb: '100x' }, default_url: '/assets/images/anvandare/project-1.jpg'

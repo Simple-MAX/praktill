@@ -3,13 +3,14 @@
     <div class="post">
       <div class="post-head">
         <div class="name">
-          <%= post.title %>
+          <%= post.user.username %>
         </div>
       </div>
       <div class="image center-block">
         <%= link_to (image_tag post.image.url(:medium), class:'img-responsive'), post_path(post) %>
       </div>
       <p class="caption">
+        <%= post.title %>
         <%= post.description %>
         <%= post.location %>
         <%= post.number_of_seats %>

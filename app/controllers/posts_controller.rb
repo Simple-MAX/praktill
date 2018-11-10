@@ -1,6 +1,7 @@
 # frozen_string_literal: true
 
 class PostsController < ApplicationController
+  before_action :authenticate_user!
   before_action :set_post, only: [:show, :edit, :update, :destroy]
 
   def index
@@ -12,12 +13,12 @@ class PostsController < ApplicationController
   end
 
   def new
-    @post = Post.new
+    @post = current_user.posts.build
   end
 
   def create
-    @post = Post.create(post_params)
-    if @post = Post.create(post_params)
+    @post = current_user.posts.build(post_params)
+    if @post.save
       flash[:success] = "Your post has been created!"
       redirect_to post_params
     else
@@ -52,7 +53,15 @@ class PostsController < ApplicationController
     params.require(:post).permit(:image, :title, :description, :location, :number_of_seats,
                                  :contact_info, :category, :will_start_at, :will_end_at)
   end
+
   def set_post
     @post = Post.find(params[:id])
+  end
+
+  def owned_post
+    unless current_user == @post.user
+      flash[:alert] = "That post doesn't belong to you!"
+      redirect_to root_path
+    end
   end
 end
