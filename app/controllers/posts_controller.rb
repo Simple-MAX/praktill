@@ -1,8 +1,8 @@
 # frozen_string_literal: true
 
 class PostsController < ApplicationController
-  before_action :authenticate_user!
-  before_action :set_post, only: [:show, :edit, :update, :destroy]
+  before_action :authenticate_user!, except: :index
+  before_action :set_post, only: %i[show edit update destroy]
 
   def index
     @posts = Post.all
@@ -14,12 +14,14 @@ class PostsController < ApplicationController
 
   def new
     @post = current_user.posts.build
+    authorize @post
   end
 
   def create
     @post = current_user.posts.build(post_params)
+    authorize @post
     if @post.save
-      flash[:success] = "Your post has been created!"
+      flash[:success] = 'Your post has been created!'
       redirect_to post_params
     else
       flash[:alert] = "Your new post couldn't be created!  Please check the form."
@@ -33,10 +35,10 @@ class PostsController < ApplicationController
 
   def update
     if @post.update(post_params)
-      flash[:success] = "Post update."
+      flash[:success] = 'Post update.'
       redirect_to posts_path
     else
-      flash.now[:alert] = "Update failed. Please check the form."
+      flash.now[:alert] = 'Update failed. Please check the form.'
       render :edit
     end
   end
@@ -56,6 +58,7 @@ class PostsController < ApplicationController
 
   def set_post
     @post = Post.find(params[:id])
+    authorize @post
   end
 
   def owned_post
