@@ -1,26 +1,64 @@
+<!--
 <nav class="navbar navbar-default">
   <div class="container-fluid navbar-container">
     <div class="navbar-header">
       <div class="navbar-brand">
-        <%= link_to "Praktill", root_path %>
+        <%#= link_to "Praktill", root_path %>
       </div>
     </div>
       <ul class="nav navbar-nav navbar-right">
-        <% if user_signed_in? %>
+        <%# if user_signed_in? %>
           <li>
-            <%= link_to "New Post", new_post_path %>
+            <%#= link_to "New Post", new_post_path %>
           </li>
           <li>
-            <%= link_to "Logout", destroy_user_session_path, method: :delete %>
+            <%#= link_to "Logout", destroy_user_session_path, method: :delete %>
           </li>
-        <% else %>
+        <%# else %>
           <li>
-            <%= link_to "Login", new_user_session_path %>
+            <%#= link_to "Login", new_user_session_path %>
           </li>
           <li>
-            <%= link_to "Register", new_user_registration_path %>
+            <%#= link_to "Register", new_user_registration_path %>
           </li>
-        <% end %>
+        <%# end %>
       </ul>
   </div>
-</nav>
+</nav> -->
+
+<header class="header-3">
+  <div class="h3-header-bottom-area">
+        <div class="container">
+          <div class="row">
+            <div class="col-lg-2 col-md-3 col-sm-4 col-8">
+              <div class="h1-logo">
+                <%= link_to(image_tag('allt/Logo_Praktil.png'), root_path) %>
+              </div>
+            </div>
+            <div class="col-lg-10 col-md-9 col-sm-6 col-12 text-right praktil-menu">
+              <div class="responsive-menu d-lg-none"></div>
+              <div class="menu d-none d-lg-block menu-praktil">
+                <nav>
+                  <ul id="menu">
+                    <li><a href="for-foretag.html">För Företag</a></li>
+                    <li><a href="#">Praktikplaster</a></li>
+                    <li><a href="#">Om Praktil</a></li>
+                  </ul>
+                </nav>
+              </div>
+              <% if user_signed_in? %>
+              <div class="h1hba-get-quote menu-praktil">
+                <%= link_to 'new post', new_post_path, class: 'link hvr-bs Praktil-link' %>
+                <%= link_to 'Logout', destroy_user_session_path, method: :delete, class: 'link hvr-bs Praktil-link-2' %>
+              </div>
+              <% else %>
+              <div class="h1hba-get-quote menu-praktil">
+                  <%= link_to 'Logga in', new_user_session_path, class: 'link hvr-bs Praktil-link' %>
+                  <%= link_to 'Skapa konto', new_user_registration_path, class: 'link hvr-bs Praktil-link-2' %>
+              </div>
+              <%  end %>
+            </div>
+          </div>
+        </div>
+  </div>
+</header>

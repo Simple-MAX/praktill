@@ -1,21 +1,21 @@
 <!DOCTYPE html>
-<html>
+<html lang="sv">
   <head>
-    <title>Praktill</title>
+    <title>MicroAA Labs || Praktil</title>
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
 
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+    <%= favicon_link_tag asset_path('favicon.ico') %>
   </head>
 
-  <body>
+  <body data-spy="scroll" data-target="#scroll-menu" data-offset="65">
   <%= render 'partial/nav' %>
-  <div class="container">
     <% flash.each do |name, msg| %>
       <%= content_tag :div, msg, class: [:alert, alert_for(name)] %>
     <% end %>
-    <%= yield %>
-  </div>
+    <%= render 'partial/landing' %>
+  <%#= yield %>
   </body>
 </html>
