@@ -1,8 +1,17 @@
 Rails.application.routes.draw do
 
-  devise_for :users, :controllers => { registrations: 'registrations' }
+  devise_for :users
   # App root
-  root 'posts#index'
+  # , path_names: {
+  #                sign_in: 'login',
+  #                password: 'forget',
+  #                confirmation: 'confirm',
+  #                unlock: 'unblock',
+  #                registration: 'register',
+  #                sign_up: 'new',
+  #                sign_out: 'logout'
+  #              }
+  root 'posts#dashboard'
   resources :posts
 
 end

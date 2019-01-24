@@ -1,4 +1,42 @@
 <header class="header-3">
+  <div class="h3-header-bottom-area">
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-2 col-md-3 col-sm-4 col-8">
+          <div class="h1-logo">
+            <%= link_to(image_tag('allt/Logo_Praktil.png'), root_path) %>
+          </div>
+        </div>
+        <div class="col-lg-10 col-md-9 col-sm-6 col-12 text-right praktil-menu">
+          <div class="responsive-menu d-lg-none"></div>
+          <div class="menu d-none d-lg-block menu-praktil">
+            <nav>
+              <ul id="menu">
+                <li><a href="for-foretag.html">För Företag</a></li>
+                <li><a href="#">Praktikplaster</a></li>
+                <li><a href="#">Om Praktil</a></li>
+              </ul>
+            </nav>
+          </div>
+          <!-- <div class="h1hba-get-quote menu-praktil">
+                <%#= link_to 'new post', new_post_path, class: 'link hvr-bs Praktil-link' %>
+                <%#= link_to 'Logout', destroy_user_session_path, method: :delete, class: 'link hvr-bs Praktil-link-2' %>
+                 <%#= link_to 'Logga in', new_user_session_path, class: 'link hvr-bs Praktil-link' , data_toggle: "modal", data_target: "#Login" %>
+                  <%#= link_to 'Skapa konto', new_user_registration_path, class: 'link hvr-bs Praktil-link-2' %>
+              </div> -->
+
+          <div class="h1hba-get-quote menu-praktil">
+            <a class="link hvr-bs Praktil-link" href="#Login" data-toggle="modal" data-target="#Login">Logga in</a>
+            <a class="link hvr-bs Praktil-link-2" href="#konto" data-toggle="modal" data-target="#konto" >Skapa konto</a>
+          </div>
+
+        </div>
+      </div>
+    </div>
+  </div>
+</header>
+
+<header class="header-3">
   <div class="h3-header-bottom-area owl-carousel">
     <div class="container">
       <div class="row">
@@ -19,8 +57,8 @@
             </nav>
           </div>
           <div class="h1hba-get-quote menu-praktil">
-            <a class="link hvr-bs Praktil-link" href="#">Logga in</a>
-            <a class="link hvr-bs Praktil-link-2" href="#">Skapa konto</a>
+            <a class="link hvr-bs Praktil-link" href="#Login" data-toggle="modal" data-target="#Login">Logga in</a>
+            <a class="link hvr-bs Praktil-link-2"  href="#konto" data-toggle="modal" data-target="#konto">Skapa konto</a>
           </div>
         </div>
       </div>
@@ -744,6 +782,139 @@ Praktikplatser online</span></h2>
 </div>
 <!-- h2-testimonial-area-end -->
 
+<div id="Login" class="modal fade" role="dialog">
+  <div class="modal-dialog login">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal">&times;</button>
+        <h4 class="modal-title">Logga In</h4>
+      </div>
+      <div class="modal-body">
+        <div class="content">
+          <div class="container">
+            <div class="row">
+              <div class="col-sm-12 col-12 text-center">
+                <a class="fbBtn" href="#">Logga in med Facebook</a>
+                <a class="lnBtn" href="#">Logga in med Linkedin</a>
+              </div>
+              <div class="col-sm-12 col-12 text-center">
+                <p>eller</p>
+                <form action="#" >
+                  <div class="row">
+                    <div class="col-12 cf-input-box">
+                      <input type="text" placeholder="E-post" id="E-post" name="E-post" required=""/>
+                    </div>
+                    <div class="col-12 cf-input-box">
+                      <input type="text" placeholder="Losenord" id="Losenord" name="Losenord" required=""/>
+                    </div>
+                    <div class="col-12 cf-input-box">
+                      <button id="submit" class="link Praktil-link-3 hvr-bs animated" name="submit">Logga In</button>
+                      <p><a href='#'>Glomt Losenord ?</a><br/><a href='#'>Registrera nytt konto</a></p>
+                    </div>
+                  </div>
+                </form>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- User registration -->
+<div id="konto" class="modal fade" role="dialog">
+  <div class="modal-dialog createAccount">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal">&times;</button>
+        <h4 class="modal-title">Skapa konto</h4>
+        <p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit.<br/> Aenean commodo ligula eget dolor. Aenean massa.  et magnis dis </p>
+      </div>
+      <div class="modal-body">
+        <div class="content">
+          <div class="container">
+
+            <ul class="nav nav-tabs">
+              <li class="active"><a data-toggle="tab" href="#home">Praktkant</a></li><li><a data-toggle="tab" href="#menu1">Foretag</a></li>
+            </ul>
+
+            <div class="tab-content">
+              <div id="home" class="tab-pane fade in active">
+                <div class="row">
+                  <div class="col-sm-12 col-12 text-center">
+                    <a class="fbBtn" href="#">Logga in med Facebook</a>
+                    <a class="lnBtn" href="#">Logga in med Linkedin</a>
+                  </div>
+                  <div class="col-sm-12 col-12 text-center">
+                    <p>eller</p>
+                    <form action="#" >
+                      <div class="row">
+                        <div class="col-12 cf-input-box">
+                          <input type="text" placeholder="E-post" id="E-post" name="E-post" required=""/>
+                        </div>
+                        <div class="col-12 cf-input-box">
+                          <input type="text" placeholder="Losenord" id="Losenord" name="Losenord" required=""/>
+                        </div>
+
+                        <div class="col-12">
+                          <p>For att skapa ett konto maste du godkanna vara<br/>
+                            <strong>anvandarvillkor och integritetspolicy.</strong>
+                            <br/><label class='lab1'> <input type="checkbox"  name="check1" required=""/><span>Jag godkanner</span></label></p>
+
+                        </div>
+                        <div class="col-12 cf-input-box">
+                          <button id="submit" class="link Praktil-link-3 hvr-bs animated" name="submit">skapa Konta</button>
+                          <p>Har du konto? <a href='#'>Logga in</a></p>
+                        </div>
+                      </div>
+                    </form>
+                  </div>
+                </div>
+              </div>
+              <div id="menu1" class="tab-pane fade">
+                <div class="row">
+
+                  <div class="col-sm-12 col-12 text-center">
+                    <form action="#" >
+                      <div class="row">
+                        <div class="col-12 cf-input-box">
+                          <input type="text" placeholder="Foretagsnamn" id="Foretagsnamn" name="Foretagsnamn" required=""/>
+                        </div>
+                        <div class="col-12 cf-input-box">
+                          <input type="text" placeholder="Organisation Snummer" id="OrganisationSnummer" name="Organisation Snummer" required=""/>
+                        </div>
+                        <div class="col-12 cf-input-box">
+                          <input type="text" placeholder="E-post" id="E-post" name="E-post" required=""/>
+                        </div>
+                        <div class="col-12 cf-input-box">
+                          <input type="text" placeholder="Losenord" id="Losenord" name="Losenord" required=""/>
+                        </div>
+
+                        <div class="col-12">
+                          <p>For att skapa ett konto maste du godkanna vara<br/>
+                            <strong>anvandarvillkor och integritetspolicy.</strong>
+                            <br/><label class='lab1'> <input type="checkbox"  name="check1" required=""/><span>Jag godkanner</span></label></p>
+
+                        </div>
+                        <div class="col-12 cf-input-box">
+                          <button id="submit" class="link Praktil-link-3 hvr-bs animated" name="submit">skapa Konta</button>
+                          <p>Har du konto? <a href='#'>Logga in</a></p>
+                        </div>
+                      </div>
+                    </form>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
 
 <!-- footer-area-start -->
 <footer class="h1-footer">
@@ -802,3 +973,164 @@ Praktikplatser online</span></h2>
     </div>
   </div>
 </footer>
+
+
+<!-- Modal -->
+<!-- Login Page -->
+<div id="Login" class="modal fade" role="dialog">
+  <div class="modal-dialog login">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal">&times;</button>
+        <h4 class="modal-title">Logga In</h4>
+      </div>
+      <div class="modal-body">
+        <div class="content">
+          <div class="container">
+            <div class="row">
+              <div class="col-sm-12 col-12 text-center">
+                <a class="fbBtn" href="#">Logga in med Facebook</a>
+                <a class="lnBtn" href="#">Logga in m ed Linkedin</a>
+              </div>
+              <div class="col-sm-12 col-12 text-center">
+                <p>eller</p>
+                <%= devise_error_messages! %>
+                <%= form_for(resource, :as => resource_name, :url => session_path(resource_name), :html => {:id => 'login-box'}, :format => :json, :remote => true) do |f| %>
+                  <div class="row">
+                    <div class="col-12 cf-input-box">
+                      <input type="text" placeholder="E-post" id="E-post" name="E-post" required=""/>
+                    </div>
+                    <div class="col-12 cf-input-box">
+                      <input type="text" placeholder="Losenord" id="Losenord" name="Losenord" required=""/>
+                    </div>
+                    <div class="col-12 cf-input-box">
+                      <button id="submit" class="link Praktil-link-3 hvr-bs animated" name="submit">Logga In</button>
+                      <p><a href='#'>Glomt Losenord ?</a><br/><a href='#'>Registrera nytt konto</a></p>
+                    </div>
+                  </div>
+                  <div class="row">
+                    <div class="col-12 cf-input-box">
+
+                      <%= f.email_field :email,
+                                  id: 'login_email',
+                                  required: false,
+                                  autofocus: true,
+                                  placeholder: 'E-post',
+                                  input_html: { autocomplete: "email" } %>
+                    </div>
+
+                    <div class="col-12 cf-input-box">
+                      <%= f.password_field :password,
+                                  id: 'login_password',
+                                  required: false,
+                                  input_html: { autocomplete: "current-password" } %>
+                    </div>
+                    <%= f.label :remember_me %>
+                    <%= f.check_box :remember_me %>
+                  </div>
+
+                  <div class="form-actions">
+                    <%= f.submit "Log in" %>
+                  </div>
+                <% end %>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- User registration -->
+<div id="konto" class="modal fade" role="dialog">
+  <div class="modal-dialog createAccount">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal">&times;</button>
+        <h4 class="modal-title">Skapa konto</h4>
+        <p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit.<br/> Aenean commodo ligula eget dolor. Aenean massa.  et magnis dis </p>
+      </div>
+      <div class="modal-body">
+        <div class="content">
+          <div class="container">
+
+            <ul class="nav nav-tabs">
+              <li class="active"><a data-toggle="tab" href="#home">Praktkant</a></li><li><a data-toggle="tab" href="#menu1">Foretag</a></li>
+            </ul>
+
+            <div class="tab-content">
+              <div id="home" class="tab-pane fade in active">
+                <div class="row">
+                  <div class="col-sm-12 col-12 text-center">
+                    <a class="fbBtn" href="#">Logga in med Facebook</a>
+                    <a class="lnBtn" href="#">Logga in med Linkedin</a>
+                  </div>
+                  <div class="col-sm-12 col-12 text-center">
+                    <p>eller</p>
+                    <form action="#" >
+                      <div class="row">
+                        <div class="col-12 cf-input-box">
+                          <input type="text" placeholder="E-post" id="E-post" name="E-post" required=""/>
+                        </div>
+                        <div class="col-12 cf-input-box">
+                          <input type="text" placeholder="Losenord" id="Losenord" name="Losenord" required=""/>
+                        </div>
+
+                        <div class="col-12">
+                          <p>For att skapa ett konto maste du godkanna vara<br/>
+                            <strong>anvandarvillkor och integritetspolicy.</strong>
+                            <br/><label class='lab1'> <input type="checkbox"  name="check1" required=""/><span>Jag godkanner</span></label></p>
+
+                        </div>
+                        <div class="col-12 cf-input-box">
+                          <button id="submit" class="link Praktil-link-3 hvr-bs animated" name="submit">skapa Konta</button>
+                          <p>Har du konto? <a href='#'>Logga in</a></p>
+                        </div>
+                      </div>
+                    </form>
+                  </div>
+                </div>
+              </div>
+              <div id="menu1" class="tab-pane fade">
+                <div class="row">
+
+                  <div class="col-sm-12 col-12 text-center">
+                    <form action="#" >
+                      <div class="row">
+                        <div class="col-12 cf-input-box">
+                          <input type="text" placeholder="Foretagsnamn" id="Foretagsnamn" name="Foretagsnamn" required=""/>
+                        </div>
+                        <div class="col-12 cf-input-box">
+                          <input type="text" placeholder="Organisation Snummer" id="OrganisationSnummer" name="Organisation Snummer" required=""/>
+                        </div>
+                        <div class="col-12 cf-input-box">
+                          <input type="text" placeholder="E-post" id="E-post" name="E-post" required=""/>
+                        </div>
+                        <div class="col-12 cf-input-box">
+                          <input type="text" placeholder="Losenord" id="Losenord" name="Losenord" required=""/>
+                        </div>
+
+                        <div class="col-12">
+                          <p>For att skapa ett konto maste du godkanna vara<br/>
+                            <strong>anvandarvillkor och integritetspolicy.</strong>
+                            <br/><label class='lab1'> <input type="checkbox"  name="check1" required=""/><span>Jag godkanner</span></label></p>
+
+                        </div>
+                        <div class="col-12 cf-input-box">
+                          <button id="submit" class="link Praktil-link-3 hvr-bs animated" name="submit">skapa Konta</button>
+                          <p>Har du konto? <a href='#'>Logga in</a></p>
+                        </div>
+                      </div>
+                    </form>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

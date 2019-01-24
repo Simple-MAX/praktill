@@ -64,7 +64,7 @@
     overflow: hidden;
 }
 #loader {
-    background: url("../img/loader.gif");
+    background: url("loader.gif");
     width: 64px;
     height: 64px;
     position: relative;
@@ -4837,7 +4837,6 @@ button {
 .cf-input-box input[type="text"] {
     border: 1px solid #e9e9e9;
     border-radius: 3px;
-    height: 60px;
     letter-spacing: 0;
     padding: 0 10px;
     width: 100%;
@@ -5134,3 +5133,4 @@ h4.minplats {background: #70B8EF;
 .results-box .box-left footer ul {margin: 0; padding: 0;}
 .results-box .box-left footer ul li {list-style: none; display: inline-block; padding-right: 10px; font-size: 12px}
 .results-box .box-left footer ul li span {padding-right: 5px; color: #333}
+.tab-content {padding: 20px}

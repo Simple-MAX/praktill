@@ -1,31 +1,56 @@
-<!--
-<nav class="navbar navbar-default">
-  <div class="container-fluid navbar-container">
-    <div class="navbar-header">
-      <div class="navbar-brand">
-        <%#= link_to "Praktill", root_path %>
+<%# flash.each do |name, msg| %>
+  <%#= content_tag :div, msg, class: [:alert, alert_for(name)] %>
+<%# end %>
+<% if user_signed_in? %>
+  <header class="header-3">
+    <div class="h3-header-bottom-area">
+      <div class="container">
+        <div class="row">
+          <div class="col-lg-2 col-md-3 col-sm-4 col-8">
+            <div class="h1-logo">
+              <%= link_to(image_tag('allt/Logo_Praktil.png'), root_path) %>
+            </div>
+          </div>
+          <div class="col-lg-10 col-md-9 col-sm-6 col-12 text-right praktil-menu">
+            <div class="h1hba-get-quote menu-praktil">
+              <ul class="nav nav-tabs" id="myTab" role="tablist">
+                <li class="nav-item">
+                  <a class="nav-link active" id="home-tab" data-toggle="tab" href="#home" role="tab"
+                     aria-controls="home" aria-selected="true"><%= current_user.username %></a>
+                </li>
+              </ul>
+
+            </div>
+          </div>
+
+        </div>
+      </div>
+      <div class="container-fluid nav-sub">
+        <div class="col-lg-12">
+          <div class="tab-content" id="myTabContent">
+            <div class="tab-pane fade show active" id="home" role="tabpanel" aria-labelledby="home-tab">
+              <div class="menu d-none d-lg-block menu-praktil">
+                <nav>
+                  <ul id="menu">
+                    <li><a href="for-foretag.html"><i class="fas fa-cog"></i> Konto Instälningar</a></li>
+                    <li><a href="#"><i class="fas fa-bullhorn"></i>Annonser</a></li>
+                    <li><a href="<% root_path %>"><i class="fas fa-home"></i> Dashboard</a></li>
+
+                  </ul>
+                  <div class="h1hba-get-quote menu-praktil sub-links">
+                      <%= link_to 'Logga ut', destroy_user_session_path, method: :delete, class: 'link hvr-bs Praktil-link fas fa-sign-out-alt'%>
+                  </div>
+                </nav>
+              </div>
+
+
+            </div>
+          </div>
+        </div>
       </div>
     </div>
-      <ul class="nav navbar-nav navbar-right">
-        <%# if user_signed_in? %>
-          <li>
-            <%#= link_to "New Post", new_post_path %>
-          </li>
-          <li>
-            <%#= link_to "Logout", destroy_user_session_path, method: :delete %>
-          </li>
-        <%# else %>
-          <li>
-            <%#= link_to "Login", new_user_session_path %>
-          </li>
-          <li>
-            <%#= link_to "Register", new_user_registration_path %>
-          </li>
-        <%# end %>
-      </ul>
-  </div>
-</nav> -->
-
+  </header>
+<% else %>
 <header class="header-3">
   <div class="h3-header-bottom-area">
         <div class="container">
@@ -46,19 +71,152 @@
                   </ul>
                 </nav>
               </div>
-              <% if user_signed_in? %>
+             <!-- <div class="h1hba-get-quote menu-praktil">
+                <%#= link_to 'new post', new_post_path, class: 'link hvr-bs Praktil-link' %>
+                <%#= link_to 'Logout', destroy_user_session_path, method: :delete, class: 'link hvr-bs Praktil-link-2' %>
+              </div> -->
+
               <div class="h1hba-get-quote menu-praktil">
-                <%= link_to 'new post', new_post_path, class: 'link hvr-bs Praktil-link' %>
-                <%= link_to 'Logout', destroy_user_session_path, method: :delete, class: 'link hvr-bs Praktil-link-2' %>
-              </div>
-              <% else %>
-              <div class="h1hba-get-quote menu-praktil">
-                  <%= link_to 'Logga in', new_user_session_path, class: 'link hvr-bs Praktil-link' %>
+                  <%= link_to 'Logga in', new_user_session_path, class: 'link hvr-bs Praktil-link' , data_toggle: "modal", data_target: "#Login" %>
                   <%= link_to 'Skapa konto', new_user_registration_path, class: 'link hvr-bs Praktil-link-2' %>
               </div>
-              <%  end %>
+
             </div>
           </div>
         </div>
   </div>
 </header>
+  <div id="Login" class="modal fade" role="dialog">
+    <div class="modal-dialog login">
+      <div class="modal-content">
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal">&times;</button>
+          <h4 class="modal-title">Logga In</h4>
+        </div>
+        <div class="modal-body">
+          <div class="content">
+            <div class="container">
+              <div class="row">
+                <div class="col-sm-12 col-12 text-center">
+                  <a class="fbBtn" href="#">Logga in med Facebook</a>
+                  <a class="lnBtn" href="#">Logga in med Linkedin</a>
+                </div>
+                <div class="col-sm-12 col-12 text-center">
+                  <p>eller</p>
+                  <form action="#" >
+                    <div class="row">
+                      <div class="col-12 cf-input-box">
+                        <input type="text" placeholder="E-post" id="E-post" name="E-post" required=""/>
+                      </div>
+                      <div class="col-12 cf-input-box">
+                        <input type="text" placeholder="Losenord" id="Losenord" name="Losenord" required=""/>
+                      </div>
+                      <div class="col-12 cf-input-box">
+                        <button id="submit" class="link Praktil-link-3 hvr-bs animated" name="submit">Logga In</button>
+                        <p><a href='#'>Glomt Losenord ?</a><br/><a href='#'>Registrera nytt konto</a></p>
+                      </div>
+                    </div>
+                  </form>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- User registration -->
+  <div id="konto" class="modal fade" role="dialog">
+    <div class="modal-dialog createAccount">
+      <div class="modal-content">
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal">&times;</button>
+          <h4 class="modal-title">Skapa konto</h4>
+          <p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit.<br/> Aenean commodo ligula eget dolor. Aenean massa.  et magnis dis </p>
+        </div>
+        <div class="modal-body">
+          <div class="content">
+            <div class="container">
+
+              <ul class="nav nav-tabs">
+                <li class="active"><a data-toggle="tab" href="#home">Praktkant</a></li><li><a data-toggle="tab" href="#menu1">Foretag</a></li>
+              </ul>
+
+              <div class="tab-content">
+                <div id="home" class="tab-pane fade in active">
+                  <div class="row">
+                    <div class="col-sm-12 col-12 text-center">
+                      <a class="fbBtn" href="#">Logga in med Facebook</a>
+                      <a class="lnBtn" href="#">Logga in med Linkedin</a>
+                    </div>
+                    <div class="col-sm-12 col-12 text-center">
+                      <p>eller</p>
+                      <form action="#" >
+                        <div class="row">
+                          <div class="col-12 cf-input-box">
+                            <input type="text" placeholder="E-post" id="E-post" name="E-post" required=""/>
+                          </div>
+                          <div class="col-12 cf-input-box">
+                            <input type="text" placeholder="Losenord" id="Losenord" name="Losenord" required=""/>
+                          </div>
+
+                          <div class="col-12">
+                            <p>For att skapa ett konto maste du godkanna vara<br/>
+                              <strong>anvandarvillkor och integritetspolicy.</strong>
+                              <br/><label class='lab1'> <input type="checkbox"  name="check1" required=""/><span>Jag godkanner</span></label></p>
+
+                          </div>
+                          <div class="col-12 cf-input-box">
+                            <button id="submit" class="link Praktil-link-3 hvr-bs animated" name="submit">skapa Konta</button>
+                            <p>Har du konto? <a href='#'>Logga in</a></p>
+                          </div>
+                        </div>
+                      </form>
+                    </div>
+                  </div>
+                </div>
+                <div id="menu1" class="tab-pane fade">
+                  <div class="row">
+
+                    <div class="col-sm-12 col-12 text-center">
+                      <form action="#" >
+                        <div class="row">
+                          <div class="col-12 cf-input-box">
+                            <input type="text" placeholder="Foretagsnamn" id="Foretagsnamn" name="Foretagsnamn" required=""/>
+                          </div>
+                          <div class="col-12 cf-input-box">
+                            <input type="text" placeholder="Organisation Snummer" id="OrganisationSnummer" name="Organisation Snummer" required=""/>
+                          </div>
+                          <div class="col-12 cf-input-box">
+                            <input type="text" placeholder="E-post" id="E-post" name="E-post" required=""/>
+                          </div>
+                          <div class="col-12 cf-input-box">
+                            <input type="text" placeholder="Losenord" id="Losenord" name="Losenord" required=""/>
+                          </div>
+
+                          <div class="col-12">
+                            <p>For att skapa ett konto maste du godkanna vara<br/>
+                              <strong>anvandarvillkor och integritetspolicy.</strong>
+                              <br/><label class='lab1'> <input type="checkbox"  name="check1" required=""/><span>Jag godkanner</span></label></p>
+
+                          </div>
+                          <div class="col-12 cf-input-box">
+                            <button id="submit" class="link Praktil-link-3 hvr-bs animated" name="submit">skapa Konta</button>
+                            <p>Har du konto? <a href='#'>Logga in</a></p>
+                          </div>
+                        </div>
+                      </form>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+<%  end %>
+
